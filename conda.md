@@ -1,52 +1,47 @@
+# Setup
+
 conda create -n functionToolsAgentsWithLangchain -c conda-forge ipykernel python-dotenv langchain openai
 
 conda activatefunctionToolsAgentsWithLangchain
 
+conda update langchain
+
+# Commands
+
 conda deactivate
 
-conda install -n functionToolsAgentsWithLangchain <package> --update-deps --force-reinstall
+conda install <package> --update-deps
 
-### Update conda
+conda install -n functionToolsAgentsWithLangchain <package> --update-deps
 
-```sh
+conda list
+
+conda list <package>
+
+- Update conda
+
 conda update -n base -c defaults conda
-```
 
-# Remove an environment
+- Remove an environment
 
-```sh
 conda env list
-
 conda remove -n functionToolsAgentsWithLangchain --all
-```
 
-# Install a kernel
+- List the history of each change to the current environment
 
-```sh
-# use ipykernel to register your new environment as a kernel namedsome_env
-(some_env) $ python -m ipykernel install --user --name some_env --display-name "play environment"
+conda list --revision
 
-# install packages in conda environment
-# -c: channel
-# -U: update
-# install version 3.10
-(some_env) $ conda install scikit-learn -c conda-forge -U python==3.10
+- Revert to revision 0
 
-# list all packages in the Conda environment
-(some_env) $ conda list [package-name]
+conda install --revision 0
 
-# to list the history of each change to the current environment
-(some_env) $ conda list --revision
+e.g. Updating some_env with TensorFlow 1.15 from base
 
-# revert to revision 0
-(some_env) $ conda install --revision 0
+conda install -n some_env tensorflow==1.15
 
-# Updating some_env with TensorFlow 1.15 from base
-(base) $ conda install -n some_env tensorflow==1.15
+- Remove a package
 
-# remove a package
 conda remove python
-```
 
 # Config
 
@@ -108,13 +103,13 @@ conda env remove -n<env_name>
 conda env list
 ```
 
-# install the kernel to use a jupyter notebook
+# Install the kernel to use a jupyter notebook
 
 ```sh
 (<new_env>) $ ipython kernel install --user --name=<any_name_for_kernel>
 ```
 
-# uninstall a kernel
+# Uninstall a kernel
 
 ```sh
 jupyter kernelspec removesome_env
