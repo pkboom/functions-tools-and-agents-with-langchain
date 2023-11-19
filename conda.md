@@ -1,18 +1,18 @@
-# Setup
-
 conda create -n functionToolsAgentsWithLangchain -c conda-forge ipykernel python-dotenv langchain openai
 
 conda activatefunctionToolsAgentsWithLangchain
 
 conda update langchain
 
-# Commands
-
 conda deactivate
 
 conda install <package> --update-deps
 
 conda install -n functionToolsAgentsWithLangchain <package> --update-deps
+
+conda install ipykernel python-dotenv langchain openai
+
+===
 
 conda list
 
